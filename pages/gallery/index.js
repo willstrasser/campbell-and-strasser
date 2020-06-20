@@ -1,6 +1,6 @@
-import GalleryLayout from '../../components/GalleryLayout';
-import Layout from '../../components/Layout';
-import {fetchPageData} from '../../utils/fetchPageData';
+import GalleryLayout from 'components/GalleryLayout';
+import Layout from 'components/Layout';
+import {fetchPageData} from 'utils/fetchPageData';
 
 export default function GalleryPage({navigation}) {
   return (

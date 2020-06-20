@@ -1,5 +1,5 @@
 import Head from 'next/head';
-import Navigation from '../components/Navigation';
+import Navigation from 'components/Navigation';
 
 import styles from './Layout.module.css';
 

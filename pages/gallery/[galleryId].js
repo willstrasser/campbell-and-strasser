@@ -1,10 +1,10 @@
 import {useRouter} from 'next/router';
 
-import GalleryLayout from '../../components/GalleryLayout';
-import Layout from '../../components/Layout';
-import Slider from '../../components/Slider';
-import {fetchPageData} from '../../utils/fetchPageData';
-import {fetchGalleryData} from '../../utils/fetchGalleryData';
+import GalleryLayout from 'components/GalleryLayout';
+import Layout from 'components/Layout';
+import Slider from 'components/Slider';
+import {fetchPageData} from 'utils/fetchPageData';
+import {fetchGalleryData} from 'utils/fetchGalleryData';
 
 export default function GallerySubPage({
   gallery_group_title,

@@ -1,6 +1,6 @@
-import Layout from '../components/Layout';
-import Slider from '../components/Slider';
-import {fetchPageData} from '../utils/fetchPageData';
+import Layout from 'components/Layout';
+import Slider from 'components/Slider';
+import {fetchPageData} from 'utils/fetchPageData';
 
 export default function ContactPage({body_text, images}) {
   return (
