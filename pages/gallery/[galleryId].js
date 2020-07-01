@@ -31,16 +31,15 @@ export async function getStaticProps({params}) {
   const galleries = await contentfulClient.getEntries({
     content_type: 'gallery',
   });
-  const gallery = await contentfulClient.getEntries({
-    'content_type': 'gallery',
-    'fields.slug': params.galleryId.toLowerCase(),
-  });
+  const gallery = galleries.items.find(
+    (gallery) => gallery.fields.slug === params.galleryId.toLowerCase()
+  );
   return {
     props: {
-      ...gallery.items[0].fields,
-      navigation: galleries.items.map((item) => ({
-        title: item.fields.title,
-        slug: item.fields.title,
+      ...gallery.fields,
+      navigation: galleries.items.map(({fields: {slug, title}}) => ({
+        slug,
+        title,
       })),
     },
   };
