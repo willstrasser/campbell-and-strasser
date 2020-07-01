@@ -12,12 +12,15 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@contentful/rich-text-react-renderer": "^14.1.1",
     "classnames": "^2.2.6",
+    "contentful": "^7.14.5",
     "next": "^9.4.4",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-slick": "^0.26.1",
-    "slick-carousel": "^1.8.1"
+    "slick-carousel": "^1.8.1",
+    "user-instagram": "^2.0.8"
   },
   "devDependencies": {
     "prettier": "2.0.5"

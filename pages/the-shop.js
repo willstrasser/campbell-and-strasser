@@ -1,22 +1,13 @@
+import {documentToReactComponents} from '@contentful/rich-text-react-renderer';
+
 import Layout from 'components/Layout';
 import Slider from 'components/Slider';
 import {fetchPageData} from 'utils/fetchPageData';
 
-export default function TheShopPage({intro_text, subsections}) {
+export default function TheShopPage({intro}) {
   return (
     <Layout>
-      <div>{intro_text}</div>
-      {subsections.map(({title, body, image}) => {
-        return (
-          <div key={title}>
-            <Slider>
-              <img src={image} />
-            </Slider>
-            <div>{title}</div>
-            <div dangerouslySetInnerHTML={{__html: body}} />
-          </div>
-        );
-      })}
+      <div>{documentToReactComponents(intro)}</div>
     </Layout>
   );
 }

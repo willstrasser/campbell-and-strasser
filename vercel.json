@@ -1,7 +1,9 @@
 {
   "build": {
     "env": {
-      "BUTTER_API_TOKEN": "@butter_api_token"
+      "BUTTER_API_TOKEN": "@butter_api_token",
+      "CONTENTFUL_API_KEY": "@contentful_api_key",
+      "CONTENTFUL_SPACE_ID": "@contentful_space_id"
     }
   }
 }

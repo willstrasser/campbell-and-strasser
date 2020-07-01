@@ -1,16 +1,13 @@
+import {documentToReactComponents} from '@contentful/rich-text-react-renderer';
+
 import Layout from 'components/Layout';
 import Slider from 'components/Slider';
 import {fetchPageData} from 'utils/fetchPageData';
 
-export default function ContactPage({body_text, images}) {
+export default function ContactPage({intro}) {
   return (
     <Layout>
-      <Slider>
-        {images.map((image) => (
-          <img key={image.image} src={image.image} />
-        ))}
-      </Slider>
-      <div dangerouslySetInnerHTML={{__html: body_text}} />
+      <div>{documentToReactComponents(intro)}</div>
     </Layout>
   );
 }

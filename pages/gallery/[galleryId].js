@@ -3,14 +3,9 @@ import {useRouter} from 'next/router';
 import GalleryLayout from 'components/GalleryLayout';
 import Layout from 'components/Layout';
 import Slider from 'components/Slider';
-import {fetchPageData} from 'utils/fetchPageData';
-import {fetchGalleryData} from 'utils/fetchGalleryData';
+import {contentfulClient} from 'utils/contentfulClient';
 
-export default function GallerySubPage({
-  gallery_group_title,
-  gallery_images,
-  navigation,
-}) {
+export default function GallerySubPage({images, navigation}) {
   const router = useRouter();
   if (router.isFallback) {
     return <div>Loading...</div>;
@@ -19,11 +14,11 @@ export default function GallerySubPage({
     <Layout>
       <GalleryLayout navigation={navigation}>
         <Slider>
-          {gallery_images.map((image) => (
+          {images.map((image) => (
             <img
               alt={image.image_description}
-              key={image.gallery_image}
-              src={image.gallery_image}
+              key={image.sys.id}
+              src={image.fields.file.url}
             />
           ))}
         </Slider>
@@ -33,26 +28,33 @@ export default function GallerySubPage({
 }
 
 export async function getStaticProps({params}) {
-  const galleryNavData = await fetchPageData('gallery');
-  const singleGalleryData = await fetchGalleryData(params.galleryId);
+  const galleries = await contentfulClient.getEntries({
+    content_type: 'gallery',
+  });
+  const gallery = await contentfulClient.getEntries({
+    'content_type': 'gallery',
+    'fields.slug': params.galleryId.toLowerCase(),
+  });
   return {
     props: {
-      ...singleGalleryData,
-      navigation: galleryNavData.galleries.map(({gallery_group_title, slug}) => ({
-        title: gallery_group_title,
-        slug,
+      ...gallery.items[0].fields,
+      navigation: galleries.items.map((item) => ({
+        title: item.fields.title,
+        slug: item.fields.title,
       })),
     },
   };
 }
 
 export async function getStaticPaths() {
-  const galleryData = await fetchPageData('gallery');
+  const galleries = await contentfulClient.getEntries({
+    content_type: 'gallery',
+  });
   return {
-    paths: galleryData.galleries.map((gallery) => {
+    paths: galleries.items.map((gallery) => {
       return {
         params: {
-          galleryId: gallery.slug,
+          galleryId: gallery.fields.slug,
         },
       };
     }),
