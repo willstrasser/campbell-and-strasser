@@ -4,17 +4,17 @@ import Layout from 'components/Layout';
 import Slider from 'components/Slider';
 import {fetchPageData} from 'utils/fetchPageData';
 
-export default function TheShopPage({intro}) {
+export default function TheShopPage({intro, preview}) {
   return (
-    <Layout>
+    <Layout preview={preview}>
       <div>{documentToReactComponents(intro)}</div>
     </Layout>
   );
 }
 
-export async function getStaticProps(context) {
-  const data = await fetchPageData(context.preview, 'the-shop');
+export async function getStaticProps({preview}) {
+  const data = await fetchPageData(preview, 'the-shop');
   return {
-    props: data,
+    props: {...data, preview: !!preview},
   };
 }

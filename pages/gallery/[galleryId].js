@@ -5,13 +5,13 @@ import Layout from 'components/Layout';
 import Slider from 'components/Slider';
 import {getClient} from 'utils/contentfulClient';
 
-export default function GallerySubPage({images, navigation}) {
+export default function GallerySubPage({images, navigation, preview}) {
   const router = useRouter();
   if (router.isFallback) {
     return <div>Loading...</div>;
   }
   return (
-    <Layout>
+    <Layout preview={preview}>
       <GalleryLayout navigation={navigation}>
         <Slider>
           {images.map((image) => (
@@ -27,12 +27,12 @@ export default function GallerySubPage({images, navigation}) {
   );
 }
 
-export async function getStaticProps(context) {
-  const galleries = await getClient(context.preview).getEntries({
+export async function getStaticProps({params, preview}) {
+  const galleries = await getClient(preview).getEntries({
     content_type: 'gallery',
   });
   const gallery = galleries.items.find(
-    (gallery) => gallery.fields.slug === context.params.galleryId.toLowerCase()
+    (gallery) => gallery.fields.slug === params.galleryId.toLowerCase()
   );
   return {
     props: {
@@ -41,11 +41,12 @@ export async function getStaticProps(context) {
         slug,
         title,
       })),
+      preview: !!preview,
     },
   };
 }
 
-export async function getStaticPaths(context) {
+export async function getStaticPaths() {
   const galleries = await getClient(false).getEntries({
     content_type: 'gallery',
   });
