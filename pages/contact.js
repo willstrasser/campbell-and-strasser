@@ -12,8 +12,8 @@ export default function ContactPage({intro}) {
   );
 }
 
-export async function getStaticProps() {
-  const data = await fetchPageData('contact');
+export async function getStaticProps(context) {
+  const data = await fetchPageData(context.preview, 'contact');
   return {
     props: data,
   };

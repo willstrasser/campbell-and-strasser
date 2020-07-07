@@ -12,8 +12,8 @@ export default function CapabilitiesPage({intro}) {
   );
 }
 
-export async function getStaticProps() {
-  const data = await fetchPageData('capabilities');
+export async function getStaticProps(context) {
+  const data = await fetchPageData(context.preview, 'capabilities');
   return {
     props: data,
   };

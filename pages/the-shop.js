@@ -12,8 +12,8 @@ export default function TheShopPage({intro}) {
   );
 }
 
-export async function getStaticProps() {
-  const data = await fetchPageData('the-shop');
+export async function getStaticProps(context) {
+  const data = await fetchPageData(context.preview, 'the-shop');
   return {
     props: data,
   };

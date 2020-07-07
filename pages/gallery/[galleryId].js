@@ -3,7 +3,7 @@ import {useRouter} from 'next/router';
 import GalleryLayout from 'components/GalleryLayout';
 import Layout from 'components/Layout';
 import Slider from 'components/Slider';
-import {contentfulClient} from 'utils/contentfulClient';
+import {getClient} from 'utils/contentfulClient';
 
 export default function GallerySubPage({images, navigation}) {
   const router = useRouter();
@@ -27,12 +27,12 @@ export default function GallerySubPage({images, navigation}) {
   );
 }
 
-export async function getStaticProps({params}) {
-  const galleries = await contentfulClient.getEntries({
+export async function getStaticProps(context) {
+  const galleries = await getClient(context.preview).getEntries({
     content_type: 'gallery',
   });
   const gallery = galleries.items.find(
-    (gallery) => gallery.fields.slug === params.galleryId.toLowerCase()
+    (gallery) => gallery.fields.slug === context.params.galleryId.toLowerCase()
   );
   return {
     props: {
@@ -45,8 +45,8 @@ export async function getStaticProps({params}) {
   };
 }
 
-export async function getStaticPaths() {
-  const galleries = await contentfulClient.getEntries({
+export async function getStaticPaths(context) {
+  const galleries = await getClient(false).getEntries({
     content_type: 'gallery',
   });
   return {

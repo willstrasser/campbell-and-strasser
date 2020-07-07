@@ -1,7 +1,7 @@
-import {contentfulClient} from 'utils/contentfulClient';
+import {getClient} from 'utils/contentfulClient';
 
-export async function fetchPageData(slug) {
-  const entries = await contentfulClient.getEntries({
+export async function fetchPageData(isPreview, slug) {
+  const entries = await getClient(isPreview).getEntries({
     'content_type': 'page',
     'fields.slug': slug,
   });

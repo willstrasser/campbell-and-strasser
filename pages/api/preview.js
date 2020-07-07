@@ -1,4 +1,4 @@
-import {fetchPageData} from 'utils/fetchPageData';
+import {getClient} from 'utils/contentfulClient';
 
 export default async (req, res) => {
   // Check the secret and next parameters
@@ -9,7 +9,14 @@ export default async (req, res) => {
 
   // Fetch the headless CMS to check if the provided `slug` exists
   // getPostBySlug would implement the required fetching logic to the headless CMS
-  const post = await fetchPageData(req.query.slug);
+  const entries = await getClient(true).getEntries({
+    'content_type': req.query.content_type,
+    'fields.slug': req.query.slug,
+  });
+  let post;
+  if (entries.items[0]) {
+    post = entries.items[0];
+  }
 
   // If the slug doesn't exist prevent preview mode from being enabled
   if (!post) {
@@ -21,6 +28,9 @@ export default async (req, res) => {
 
   // Redirect to the path from the fetched post
   // We don't redirect to req.query.slug as that might lead to open redirect vulnerabilities
-  res.writeHead(307, {Location: `/${post.slug}`});
+  const url =
+    [req.query.content_type === 'gallery' ? '/gallery' : ''] +
+    [`/${post.fields.slug}`].join('');
+  res.writeHead(307, {Location: url});
   res.end();
 };
