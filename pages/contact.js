@@ -1,13 +1,15 @@
 import {documentToReactComponents} from '@contentful/rich-text-react-renderer';
 
-import Layout from 'components/Layout';
+import Layout, {Intro} from 'components/Layout';
 import Slider from 'components/Slider';
 import {fetchPageData} from 'utils/fetchPageData';
+
+import styles from './contact.module.css';
 
 export default function ContactPage({intro, preview}) {
   return (
     <Layout preview={preview}>
-      <div>{documentToReactComponents(intro)}</div>
+      <Intro><div className={styles.contact}>{documentToReactComponents(intro)}</div></Intro>
     </Layout>
   );
 }

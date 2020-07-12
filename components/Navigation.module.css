@@ -1,20 +1,19 @@
 .nav {
   display: flex;
-  justify-content: space-around;
-  flex-wrap: wrap;
-}
-
-.navItem:first-child {
-  width: 100%;
-  text-align: center;
+  margin-left: 0;
+  height: 100px;
+  align-items: center;
+  margin-block-start: 0;
+  margin-block-end: 0;
 }
 
 .navLink {
-  color: white;
-  text-decoration: none;
   border-bottom: none;
+  color: white;
+  margin: 0 50px 0 0;
+  text-decoration: none;
 }
 
 .selected {
-  font-weight: bold;
+  border-bottom: 2px solid white;
 }

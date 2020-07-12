@@ -1,6 +1,8 @@
 .layout {
-  background-color: rgb(159, 141, 105);
+  padding: 0px 50px;
   color: white;
-  padding: 30px;
-  text-align: center;
+}
+
+.intro {
+  width: 50%;
 }

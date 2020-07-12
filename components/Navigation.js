@@ -8,7 +8,7 @@ const pages = [
   {slug: '', title: 'Campbell & Strasser'},
   {slug: 'the-shop', title: 'The Shop'},
   {slug: 'capabilities', title: 'Capabilities'},
-  {slug: 'gallery/kitchens', title: 'Gallery'},
+  {slug: 'gallery', title: 'Gallery'},
   {slug: 'contact', title: 'Contact'},
 ];
 function Navigation() {

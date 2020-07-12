@@ -1,0 +1,10 @@
+.sliderContainer {
+  max-height: calc(100vh - 100px);
+  max-width: calc(100vh - 100px);
+}
+.imageContainer {
+  height: 100%;
+}
+.image {
+  height: 100%;
+}

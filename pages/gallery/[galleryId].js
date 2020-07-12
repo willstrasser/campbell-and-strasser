@@ -5,24 +5,27 @@ import Layout from 'components/Layout';
 import Slider from 'components/Slider';
 import {getClient} from 'utils/contentfulClient';
 
-export default function GallerySubPage({images, navigation, preview}) {
+import styles from './[galleryId].module.css';
+
+export default function GallerySubPage({images, preview}) {
   const router = useRouter();
   if (router.isFallback) {
     return <div>Loading...</div>;
   }
   return (
     <Layout preview={preview}>
-      <GalleryLayout navigation={navigation}>
+      <div className={styles.sliderContainer}>
         <Slider>
           {images.map((image) => (
             <img
               alt={image.image_description}
+              className={styles.image}
               key={image.sys.id}
               src={image.fields.file.url}
             />
           ))}
         </Slider>
-      </GalleryLayout>
+      </div>
     </Layout>
   );
 }
@@ -37,10 +40,6 @@ export async function getStaticProps({params, preview}) {
   return {
     props: {
       ...gallery.fields,
-      navigation: galleries.items.map(({fields: {slug, title}}) => ({
-        slug,
-        title,
-      })),
       preview: !!preview,
     },
   };

@@ -1,8 +1,6 @@
 body {
   /* font-family: 'SF Pro Text', 'SF Pro Icons', 'Helvetica Neue', 'Helvetica', 'Arial',
     sans-serif; */
-  padding: 20px 20px 60px;
-  max-width: 680px;
   margin: 0 auto;
   font-size: 20px;
   line-height: 1.65;
@@ -24,13 +22,14 @@ h4 {
 a {
   cursor: pointer;
   color: #0076ff;
+  color: white;
   text-decoration: none;
   transition: all 0.2s ease;
   border-bottom: 1px solid white;
 }
 
 a:hover {
-  border-bottom: 1px solid #0076ff;
+  border-bottom: 2px solid white;
 }
 
 ul,

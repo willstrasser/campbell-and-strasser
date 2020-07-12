@@ -4,6 +4,7 @@ export default function Slides({children}) {
   const settings = {
     // autoplay: true,
     // fade: true,
+    adaptiveHeight: true,
     speed: 500,
     slidesToShow: 1,
     slidesToScroll: 1,
