@@ -9,7 +9,9 @@ import styles from './contact.module.css';
 export default function ContactPage({intro, preview}) {
   return (
     <Layout preview={preview}>
-      <Intro><div className={styles.contact}>{documentToReactComponents(intro)}</div></Intro>
+      <Intro>
+        <div className={styles.contact}>{documentToReactComponents(intro)}</div>
+      </Intro>
     </Layout>
   );
 }

@@ -1,7 +1,7 @@
 import {useEffect, useState} from 'react';
 import userInstagram from 'user-instagram';
 
-import Layout from 'components/Layout';
+import Slider from 'components/Slider';
 
 export default function InstagramImages({handle}) {
   const [data, setData] = useState({});
@@ -18,10 +18,10 @@ export default function InstagramImages({handle}) {
     return null;
   }
   return (
-    <>
+    <Slider>
       {data.posts.map((post) => (
         <img key={post.id} src={post.imageUrl} />
       ))}
-    </>
+    </Slider>
   );
 }
