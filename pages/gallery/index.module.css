@@ -1,12 +1,21 @@
 .gridContainer {
   display: grid;
-  grid-column-gap: 50px;
-  grid-template-columns: 50% 50%;
+  grid-column-gap: 75px;
+  grid-template-columns: auto auto;
   margin-left: 0;
-  margin-right: 50px;
 }
+
 .link {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+  cursor: pointer;
+  margin-bottom: 75px;
+}
+.link img {
+  transition: opacity ease 200ms;
+}
+
+.link:hover img {
+  opacity: 0.85;
 }

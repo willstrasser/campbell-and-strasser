@@ -40,3 +40,7 @@
   overflow: hidden;
   border-bottom: none;
 }
+
+.logo:hover {
+  border-bottom: none;
+}

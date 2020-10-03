@@ -18,7 +18,7 @@ export default function GalleryIndex({navigation, preview}) {
                   <img
                     alt={image.image_description}
                     key={image.sys.id}
-                    src={`${image.fields.file.url}?w=600&h=600&fit=fill`}
+                    src={`${image.fields.file.url}?w=600&h=400&fit=fill`}
                   />
                   <a>{title}</a>
                 </div>
