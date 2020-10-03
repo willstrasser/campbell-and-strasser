@@ -22,3 +22,5 @@ export default function Layout({preview, children}) {
 }
 
 export const Intro = ({children}) => <div className={styles.intro}>{children}</div>;
+export const Section = ({children}) => <div className={styles.section}>{children}</div>;
+export const Subnav = ({children}) => <div className={styles.subnav}>{children}</div>;

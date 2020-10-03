@@ -1,13 +1,16 @@
-import {documentToReactComponents} from '@contentful/rich-text-react-renderer';
-
-import Layout, {Intro} from 'components/Layout';
+import Layout from 'components/Layout';
 import Slider from 'components/Slider';
+import PageWithSubsections from 'components/PageWithSubsections';
 import {fetchPageData} from 'utils/fetchPageData';
 
-export default function TheShopPage({intro, preview}) {
+export default function CapabilitiesPage({introImages, intro, subsections, preview}) {
   return (
     <Layout preview={preview}>
-      <Intro>{documentToReactComponents(intro)}</Intro>
+      <PageWithSubsections
+        images={introImages}
+        intro={intro}
+        subsections={subsections}
+      />
     </Layout>
   );
 }

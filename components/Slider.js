@@ -10,7 +10,6 @@ if (process.browser) {
 export default function Slides({children}) {
   const slider = useRef(null);
   const settings = {
-    adaptiveHeight: true,
     speed: 500,
     slidesToShow: 1,
     slidesToScroll: 1,

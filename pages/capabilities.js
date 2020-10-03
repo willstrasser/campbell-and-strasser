@@ -1,13 +1,12 @@
-import {documentToReactComponents} from '@contentful/rich-text-react-renderer';
-
-import Layout, {Intro} from 'components/Layout';
+import Layout from 'components/Layout';
 import Slider from 'components/Slider';
+import PageWithSubsections from 'components/PageWithSubsections';
 import {fetchPageData} from 'utils/fetchPageData';
 
-export default function CapabilitiesPage({intro, preview}) {
+export default function CapabilitiesPage({intro, subsections, preview}) {
   return (
     <Layout preview={preview}>
-      <Intro>{documentToReactComponents(intro)}</Intro>
+      <PageWithSubsections intro={intro} subsections={subsections} />
     </Layout>
   );
 }
