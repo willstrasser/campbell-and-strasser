@@ -11,8 +11,8 @@
 }
 
 @media (max-width: 900px) {
-  .nav {
-    background-color: red;
+  .navLink {
+    display: none;
   }
 }
 
