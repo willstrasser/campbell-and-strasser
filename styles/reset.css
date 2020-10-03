@@ -25,11 +25,10 @@ a {
   color: white;
   text-decoration: none;
   transition: all 0.2s ease;
-  border-bottom: 1px solid white;
 }
 
 a:hover {
-  border-bottom: 2px solid white;
+  border-bottom: 1px solid white;
 }
 
 ul,

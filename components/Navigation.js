@@ -5,18 +5,18 @@ import {useRouter} from 'next/router';
 import styles from './Navigation.module.css';
 
 const pages = [
-  {slug: '', title: 'Campbell & Strasser'},
-  {slug: 'the-shop', title: 'The Shop'},
-  {slug: 'capabilities', title: 'Capabilities'},
-  {slug: 'gallery', title: 'Gallery'},
-  {slug: 'contact', title: 'Contact'},
+  {slug: '', title: 'Campbell & Strasser', style: [styles.logo]},
+  {slug: 'the-shop', title: 'The Shop', style: []},
+  {slug: 'capabilities', title: 'Capabilities', style: []},
+  {slug: 'gallery', title: 'Gallery', style: []},
+  {slug: 'contact', title: 'Contact', style: []},
 ];
 function Navigation() {
   const router = useRouter();
   return (
     <ul className={styles.nav}>
       {pages.map((p) => {
-        const classes = classNames({
+        const classes = classNames(...p.style, {
           [styles.navLink]: true,
           [styles.selected]: router.route.slice(1).startsWith(p.slug),
         });

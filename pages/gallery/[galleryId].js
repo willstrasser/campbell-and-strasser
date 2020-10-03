@@ -21,7 +21,7 @@ export default function GallerySubPage({images, preview}) {
               alt={image.image_description}
               className={styles.image}
               key={image.sys.id}
-              src={image.fields.file.url}
+              src={`${image.fields.file.url}?w=1000&h=1000&fit=fill`}
             />
           ))}
         </Slider>
