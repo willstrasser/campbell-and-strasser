@@ -1,8 +1,8 @@
 import {getClient} from 'utils/contentfulClient';
 
-export async function fetchPageData(isPreview, slug) {
+export async function fetchPageData(isPreview, slug, contentType = 'page') {
   const entries = await getClient(isPreview).getEntries({
-    'content_type': 'page',
+    'content_type': contentType,
     'fields.slug': slug,
   });
   if (entries.items) {

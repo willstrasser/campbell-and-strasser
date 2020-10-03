@@ -32,17 +32,17 @@ export default function GalleryIndex({navigation, preview}) {
 }
 
 export async function getStaticProps({preview}) {
-  const galleries = await getClient(preview).getEntries({
-    content_type: 'gallery',
-  });
+  const orderedGalleries = await getClient(preview).getEntry('3f5i95YYyhpamAF690kJ5m');
+  const galleries = orderedGalleries.fields.ordering;
   return {
     props: {
-      navigation: galleries.items.map(({fields: {slug, title, images}}) => ({
+      navigation: galleries.map(({fields: {slug, title, images}}) => ({
         slug,
         title,
         image: images[0],
       })),
       preview: !!preview,
+      orderedGalleries,
     },
   };
 }
