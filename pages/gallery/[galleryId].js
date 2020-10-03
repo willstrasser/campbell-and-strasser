@@ -17,12 +17,15 @@ export default function GallerySubPage({images, preview}) {
       <div className={styles.sliderContainer}>
         <Slider>
           {images.map((image) => (
-            <img
-              alt={image.image_description}
-              className={styles.image}
-              key={image.sys.id}
-              src={`${image.fields.file.url}?w=1000&h=1000&fit=fill`}
-            />
+            <div className={styles.slide}>
+              <img
+                className={styles.image}
+                alt={image.fields.description}
+                key={image.sys.id}
+                src={`${image.fields.file.url}?w=1000&h=1000&fit=fill`}
+              />
+              <span className={styles.description}>{image.fields.description}</span>
+            </div>
           ))}
         </Slider>
       </div>
