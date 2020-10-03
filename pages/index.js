@@ -23,7 +23,7 @@ export default function HomePage({images, preview}) {
               <img
                 alt={image.image_description}
                 key={image.sys.id}
-                src={`${image.fields.file.url}`}
+                src={`${image.fields.file.url}?w=1500&h=1000`}
               />
             ))}
           </Slider>
