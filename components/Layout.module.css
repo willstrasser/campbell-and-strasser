@@ -18,3 +18,15 @@
   text-transform: uppercase;
   font-size: 14px;
 }
+
+@media (max-width: 768px) {
+  .layout {
+    padding: 0 25px;
+  }
+  .intro {
+    width: 100%;
+  }
+  .section {
+    width: 100%;
+  }
+}

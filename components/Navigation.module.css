@@ -18,20 +18,6 @@
   font-size: 16px;
 }
 
-@media (max-width: 900px) {
-  .navLink {
-    font-size: 12px;
-    margin-right: 15px;
-    background-color: red;
-  }
-}
-
-@media (max-width: 675px) {
-  .navLink {
-    display: none;
-  }
-}
-
 .selected {
   color: rgb(35, 31, 32);
 }
@@ -51,4 +37,71 @@
 
 .logo:hover {
   border-bottom: none;
+}
+
+.mobileNav {
+  display: none;
+}
+
+.hamburger {
+  display: none;
+}
+
+@media (max-width: 900px) {
+  .navLink {
+    font-size: 12px;
+    margin-right: 15px;
+  }
+}
+
+@media (max-width: 768px) {
+  .nav {
+    justify-content: center;
+  }
+
+  .navLink {
+    display: none;
+  }
+
+  .nav .logo {
+    display: block;
+  }
+
+  .mobileNav {
+    display: none;
+    flex-direction: column;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(159, 141, 105, 0.85);
+    margin: 0;
+    align-items: center;
+    justify-content: center;
+    z-index: 100;
+  }
+
+  .mobileNav.open {
+    display: flex;
+  }
+
+  .mobileNav .logo {
+    outline: 1px solid red;
+    display: none !important;
+  }
+
+  .mobileNav .navLink {
+    display: block;
+    padding: 20px;
+    font-size: 2rem;
+  }
+
+  .hamburger {
+    display: block;
+    position: fixed;
+    top: 0;
+    right: 0;
+    z-index: 101;
+  }
 }

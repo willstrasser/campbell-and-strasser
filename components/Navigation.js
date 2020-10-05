@@ -1,4 +1,5 @@
 import classNames from 'classnames';
+import {useState} from 'react';
 import Link from 'next/link';
 import {useRouter} from 'next/router';
 
@@ -12,23 +13,33 @@ const pages = [
   {slug: 'contact', title: 'Contact', style: []},
 ];
 function Navigation() {
+  const [open, setOpen] = useState(false);
+  function renderLinks() {
+    return pages.map((p) => {
+      const classes = classNames(...p.style, {
+        [styles.navLink]: true,
+        [styles.selected]: router.route.slice(1).startsWith(p.slug),
+      });
+      return (
+        <li className={styles.navItem} key={p.slug}>
+          <Link href={`/${p.slug}`}>
+            <a className={classes}>{p.title}</a>
+          </Link>
+        </li>
+      );
+    });
+  }
   const router = useRouter();
   return (
-    <ul className={styles.nav}>
-      {pages.map((p) => {
-        const classes = classNames(...p.style, {
-          [styles.navLink]: true,
-          [styles.selected]: router.route.slice(1).startsWith(p.slug),
-        });
-        return (
-          <li className={styles.navItem} key={p.slug}>
-            <Link href={`/${p.slug}`}>
-              <a className={classes}>{p.title}</a>
-            </Link>
-          </li>
-        );
-      })}
-    </ul>
+    <>
+      <ul className={styles.nav}>{renderLinks()}</ul>
+      <ul className={classNames(styles.mobileNav, {[styles.open]: open})}>
+        {renderLinks()}
+      </ul>
+      <div onClick={() => setOpen(!open)} className={styles.hamburger}>
+        menu
+      </div>
+    </>
   );
 }
 
