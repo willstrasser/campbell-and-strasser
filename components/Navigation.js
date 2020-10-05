@@ -36,8 +36,13 @@ function Navigation() {
       <ul className={classNames(styles.mobileNav, {[styles.open]: open})}>
         {renderLinks()}
       </ul>
-      <div onClick={() => setOpen(!open)} className={styles.hamburger}>
-        menu
+      <div
+        onClick={() => setOpen(!open)}
+        className={classNames(styles.navToggle, {[styles.active]: open})}
+      >
+        <i></i>
+        <i></i>
+        <i></i>
       </div>
     </>
   );
