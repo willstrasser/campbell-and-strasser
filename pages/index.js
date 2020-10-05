@@ -8,9 +8,10 @@ import styles from './index.module.css';
 
 export default function HomePage({images, preview}) {
   const settings = {
+    arrows: false,
     autoplay: true,
-    centerMode: true,
     fade: true,
+    lazyLoad: 'progressive',
     pauseOnHover: false,
     speed: 1500,
   };

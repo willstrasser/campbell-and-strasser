@@ -19,14 +19,26 @@
   font-size: 14px;
 }
 
+.images {
+  margin-top: 25px;
+  width: 506px;
+}
+
 @media (max-width: 768px) {
   .layout {
     padding: 0 25px;
   }
   .intro {
     width: 100%;
+    font-size: 18px;
   }
   .section {
     width: 100%;
+  }
+  .subnav a {
+    font-size: 12px;
+  }
+  .images {
+    max-width: 100%;
   }
 }
