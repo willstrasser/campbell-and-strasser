@@ -1,13 +1,14 @@
 import {documentToReactComponents} from '@contentful/rich-text-react-renderer';
 import Slider from 'react-slick';
 
-import {Intro, Section, Subnav} from './Layout';
+import {Images, Intro, Section, Subnav} from './Layout';
 
 export default function PageWithSubsections({images, intro, subsections}) {
   const settings = {
     arrows: false,
     autoplay: true,
     fade: true,
+    lazyLoad: 'progressive',
     pauseOnHover: false,
     speed: 1500,
   };
@@ -18,7 +19,7 @@ export default function PageWithSubsections({images, intro, subsections}) {
           <a href={`#${subsection.fields.slug}`}>{subsection.fields.title}</a>
         ))}
       </Subnav>
-      <div style={{marginTop: 25, width: 506}}>
+      <Images>
         <Slider {...settings}>
           {images &&
             images.map((image) => (
@@ -29,7 +30,7 @@ export default function PageWithSubsections({images, intro, subsections}) {
               />
             ))}
         </Slider>
-      </div>
+      </Images>
       <Intro>{documentToReactComponents(intro)}</Intro>
       {subsections.map((subsection) => (
         <Section>

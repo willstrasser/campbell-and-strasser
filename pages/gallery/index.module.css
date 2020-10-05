@@ -19,3 +19,14 @@
 .link:hover img {
   opacity: 0.85;
 }
+
+@media (max-width: 768px) {
+  .gridContainer {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .link {
+    margin-bottom: 25px;
+  }
+}
