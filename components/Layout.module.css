@@ -5,7 +5,7 @@
 
 .intro {
   width: 50%;
-  max-width: 506px;
+  max-width: 650px;
 }
 
 .section {
@@ -21,7 +21,7 @@
 
 .images {
   margin-top: 25px;
-  width: 506px;
+  width: 650px;
 }
 
 @media (max-width: 768px) {
