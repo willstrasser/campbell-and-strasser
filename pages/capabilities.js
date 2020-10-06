@@ -3,10 +3,14 @@ import Slider from 'components/Slider';
 import PageWithSubsections from 'components/PageWithSubsections';
 import {fetchPageData} from 'utils/fetchPageData';
 
-export default function CapabilitiesPage({intro, subsections, preview}) {
+export default function CapabilitiesPage({introImages, intro, subsections, preview}) {
   return (
     <Layout preview={preview}>
-      <PageWithSubsections intro={intro} subsections={subsections} />
+      <PageWithSubsections
+        images={introImages}
+        intro={intro}
+        subsections={subsections}
+      />
     </Layout>
   );
 }

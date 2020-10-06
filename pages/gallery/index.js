@@ -36,10 +36,10 @@ export async function getStaticProps({preview}) {
   const galleries = orderedGalleries.fields.ordering;
   return {
     props: {
-      navigation: galleries.map(({fields: {slug, title, images}}) => ({
+      navigation: galleries.map(({fields: {slug, title, images, indexImage}}) => ({
         slug,
         title,
-        image: images[0],
+        image: indexImage || images[0],
       })),
       preview: !!preview,
       orderedGalleries,
