@@ -12,12 +12,14 @@
   cursor: pointer;
   margin-bottom: 75px;
 }
+
 .link img {
-  transition: opacity ease 200ms;
+  transition: filter ease 200ms;
+  filter: grayscale(35%);
 }
 
 .link:hover img {
-  opacity: 0.85;
+  filter: grayscale(0%);
 }
 
 @media (max-width: 768px) {
@@ -28,5 +30,8 @@
 
   .link {
     margin-bottom: 25px;
+  }
+  .link img {
+    filter: grayscale(0%);
   }
 }
