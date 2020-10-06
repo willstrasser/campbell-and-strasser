@@ -26,7 +26,7 @@ export default function PageWithSubsections({images, intro, subsections}) {
               <img
                 alt={image.image_description}
                 key={image.sys.id}
-                src={`${image.fields.file.url}?w=500&h=150&fit=fill`}
+                src={`${image.fields.file.url}?w=1000&h=300&fit=fill`}
               />
             ))}
         </Slider>
