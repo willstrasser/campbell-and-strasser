@@ -6,6 +6,28 @@ import {fetchPageData} from 'utils/fetchPageData';
 
 import styles from './index.module.css';
 
+function SampleNextArrow(props) {
+  const {className, style, onClick} = props;
+  return (
+    <div
+      className={className}
+      style={{...style, display: 'block', background: 'red'}}
+      onClick={onClick}
+    />
+  );
+}
+
+function SamplePrevArrow(props) {
+  const {className, style, onClick} = props;
+  return (
+    <div
+      className={className}
+      style={{...style, display: 'block', background: 'green'}}
+      onClick={onClick}
+    />
+  );
+}
+
 export default function HomePage({images, preview}) {
   const settings = {
     arrows: false,
@@ -13,8 +35,11 @@ export default function HomePage({images, preview}) {
     fade: true,
     lazyLoad: 'progressive',
     pauseOnHover: false,
-    speed: 1500,
+    speed: 3000,
+    nextArrow: <SampleNextArrow />,
+    prevArrow: <SamplePrevArrow />,
   };
+
   return (
     <>
       <Layout preview={preview}>

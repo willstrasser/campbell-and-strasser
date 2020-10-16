@@ -1,3 +1,8 @@
+.centerer {
+  display: flex;
+  justify-content: center;
+}
+
 .sliderContainer {
   max-width: calc(100vh - 140px);
 }

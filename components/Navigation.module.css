@@ -4,17 +4,17 @@
   align-items: center;
   margin-block-start: 0;
   margin-block-end: 0;
-  background-color: rgba(159, 141, 105, 0.85);
+  background-color: rgba(231, 236, 239, 0.85);
   margin: 0 -50px;
-  padding: 0 50px;
+  padding: 0 50px 0 50vw;
 }
 
 .navLink {
-  color: white;
-  margin: 0 50px 0 0;
+  color: rgba(35, 31, 32, 0.75);
+  margin: 0 25px 0 0;
   text-decoration: none;
   margin-bottom: -8px;
-  font-size: 16px;
+  font-size: 14px;
 }
 
 .selected {
@@ -32,6 +32,7 @@
   white-space: nowrap;
   overflow: hidden;
   border-bottom: none;
+  margin-left: -150px;
 }
 
 .logo:hover {
@@ -57,6 +58,7 @@
   .nav {
     justify-content: center;
     margin: 0 -25px;
+    padding-left: 0;
   }
 
   .navLink {
@@ -76,7 +78,7 @@
     bottom: 0;
     left: 0;
     right: 0;
-    background-color: rgba(159, 141, 105, 0.85);
+    background-color: rgba(231, 236, 239, 0.85);
     margin: 0;
     align-items: center;
     justify-content: center;
@@ -88,7 +90,6 @@
   }
 
   .mobileNav .logo {
-    outline: 1px solid red;
     display: none !important;
   }
 
@@ -111,7 +112,7 @@
   }
 
   .navToggle i {
-    background-color: #fff;
+    background-color: rgb(35, 31, 32);
     content: '';
     display: block;
     width: 100%;
