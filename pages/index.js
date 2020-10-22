@@ -2,6 +2,7 @@ import Slider from 'react-slick';
 
 import Layout from 'components/Layout';
 import InstagramImages from 'components/InstagramImages';
+import InstagramLink from 'components/InstagramLink';
 import {fetchPageData} from 'utils/fetchPageData';
 
 import styles from './index.module.css';
@@ -54,6 +55,7 @@ export default function HomePage({images, preview}) {
             ))}
           </Slider>
         </div>
+        <InstagramLink isAbsolute={true} />
       </Layout>
     </>
   );

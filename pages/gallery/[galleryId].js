@@ -23,7 +23,7 @@ export default function GallerySubPage({images, preview}) {
                   className={styles.image}
                   alt={image.fields.description}
                   key={image.sys.id}
-                  src={`${image.fields.file.url}?w=1000&h=1000&fit=fill`}
+                  src={`${image.fields.file.url}?w=1000`}
                 />
                 <span className={styles.description}>{image.fields.description}</span>
               </div>

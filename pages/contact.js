@@ -1,5 +1,6 @@
 import {documentToReactComponents} from '@contentful/rich-text-react-renderer';
 
+import InstagramLink from 'components/InstagramLink';
 import Layout, {Intro, Section} from 'components/Layout';
 import Slider from 'components/Slider';
 import {fetchPageData} from 'utils/fetchPageData';
@@ -12,6 +13,7 @@ export default function ContactPage({intro, preview}) {
       <Section>
         <div className={styles.contact}>{documentToReactComponents(intro)}</div>
       </Section>
+      <InstagramLink isAbsolute={true} isBlack={true} />
     </Layout>
   );
 }

@@ -6,17 +6,16 @@ import {useRouter} from 'next/router';
 import styles from './Navigation.module.css';
 
 const pages = [
-  {slug: '', title: 'Campbell & Strasser', style: [styles.logo]},
-  {slug: 'the-shop', title: 'The Shop', style: []},
-  {slug: 'capabilities', title: 'Capabilities', style: []},
-  {slug: 'gallery', title: 'Gallery', style: []},
-  {slug: 'contact', title: 'Contact', style: []},
+  {slug: '', title: 'Campbell & Strasser'},
+  {slug: 'the-shop', title: 'The Shop'},
+  {slug: 'gallery', title: 'Projects'},
+  {slug: 'contact', title: 'Contact'},
 ];
 function Navigation() {
   const [open, setOpen] = useState(false);
   function renderLinks() {
-    return pages.map((p) => {
-      const classes = classNames(...p.style, {
+    return pages.slice(1).map((p) => {
+      const classes = classNames({
         [styles.navLink]: true,
         [styles.selected]: router.route.slice(1).startsWith(p.slug),
       });
@@ -32,7 +31,14 @@ function Navigation() {
   const router = useRouter();
   return (
     <>
-      <ul className={styles.nav}>{renderLinks()}</ul>
+      <ul className={styles.nav}>
+        <li className={classNames(styles.navItem, styles.logoItem)} key={pages[0].slug}>
+          <Link href={`/${pages[0].slug}`}>
+            <a className={classNames(styles.navLink, styles.logo)}>{pages[0].title}</a>
+          </Link>
+        </li>
+        {renderLinks()}
+      </ul>
       <ul className={classNames(styles.mobileNav, {[styles.open]: open})}>
         {renderLinks()}
       </ul>

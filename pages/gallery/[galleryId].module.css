@@ -7,11 +7,12 @@
   max-width: calc(100vh - 140px);
 }
 .slide {
-  height: 100%;
+  height: calc(100vh - 100px);
   position: relative;
 }
 .image {
   max-height: calc(100vh - 140px);
+  margin: 0 auto;
 }
 
 .description {

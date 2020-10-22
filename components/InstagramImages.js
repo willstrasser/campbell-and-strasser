@@ -18,10 +18,10 @@ export default function InstagramImages({handle}) {
     return null;
   }
   return (
-    <Slider>
+    <>
       {data.posts.map((post) => (
         <img key={post.id} src={post.imageUrl} />
       ))}
-    </Slider>
+    </>
   );
 }
