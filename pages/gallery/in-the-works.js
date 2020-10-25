@@ -4,7 +4,7 @@ import userInstagram from 'user-instagram';
 
 import GalleryLayout from 'components/GalleryLayout';
 import Layout from 'components/Layout';
-import Slider from 'components/Slider';
+import Swiper, {Slide} from 'components/Swiper';
 
 import styles from './[galleryId].module.css';
 
@@ -29,13 +29,13 @@ export default function InTheWorks() {
       <div className={styles.centerer}>
         {data.posts ? (
           <div className={styles.sliderContainer}>
-            <Slider>
+            <Swiper>
               {data.posts.map((post) => (
-                <div className={styles.slide}>
+                <Slide>
                   <img className={styles.image} key={post.id} src={post.imageUrl} />
-                </div>
+                </Slide>
               ))}
-            </Slider>
+            </Swiper>
           </div>
         ) : (
           <div>loading...</div>

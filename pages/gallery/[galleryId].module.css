@@ -1,18 +1,10 @@
-.centerer {
-  display: flex;
-  justify-content: center;
+.sliderContainer {
+  width: 100vw;
 }
 
-.sliderContainer {
-  max-width: calc(100vh - 140px);
-}
-.slide {
-  height: calc(100vh - 100px);
-  position: relative;
-}
 .image {
-  max-height: calc(100vh - 140px);
-  margin: 0 auto;
+  height: calc(100vh - 180px) !important;
+  display: block;
 }
 
 .description {

@@ -2,7 +2,7 @@ import {useRouter} from 'next/router';
 
 import GalleryLayout from 'components/GalleryLayout';
 import Layout from 'components/Layout';
-import Slider from 'components/Slider';
+import Swiper, {Slide} from 'components/Swiper';
 import {getClient} from 'utils/contentfulClient';
 
 import styles from './[galleryId].module.css';
@@ -14,22 +14,19 @@ export default function GallerySubPage({images, preview}) {
   }
   return (
     <Layout preview={preview}>
-      <div className={styles.centerer}>
-        <div className={styles.sliderContainer}>
-          <Slider>
-            {images.map((image) => (
-              <div className={styles.slide}>
-                <img
-                  className={styles.image}
-                  alt={image.fields.description}
-                  key={image.sys.id}
-                  src={`${image.fields.file.url}?w=1000`}
-                />
-                <span className={styles.description}>{image.fields.description}</span>
-              </div>
-            ))}
-          </Slider>
-        </div>
+      <div className={styles.sliderContainer}>
+        <Swiper>
+          {images.map((image) => (
+            <Slide key={image.sys.id}>
+              <img
+                className={styles.image}
+                alt={image.fields.description}
+                src={`${image.fields.file.url}?w=1000`}
+              />
+              <span className={styles.description}>{image.fields.description}</span>
+            </Slide>
+          ))}
+        </Swiper>
       </div>
     </Layout>
   );
