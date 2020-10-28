@@ -49,14 +49,18 @@ export async function getStaticPaths() {
   const galleries = await getClient(false).getEntries({
     content_type: 'gallery',
   });
+  const filteredPaths = galleries.items.filter(
+    (path) => path.fields.slug !== 'in-the-works'
+  );
+  const paths = filteredPaths.map((gallery) => {
+    return {
+      params: {
+        galleryId: gallery.fields.slug,
+      },
+    };
+  });
   return {
-    paths: galleries.items.map((gallery) => {
-      return {
-        params: {
-          galleryId: gallery.fields.slug,
-        },
-      };
-    }),
+    paths,
     fallback: true,
   };
 }
