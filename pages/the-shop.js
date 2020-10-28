@@ -1,6 +1,5 @@
 import InstagramLink from 'components/InstagramLink';
 import Layout from 'components/Layout';
-import Slider from 'components/Slider';
 import PageWithSubsections from 'components/PageWithSubsections';
 import {fetchPageData} from 'utils/fetchPageData';
 

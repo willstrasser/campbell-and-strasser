@@ -26,21 +26,17 @@ export default function InTheWorks() {
   }
   return (
     <Layout>
-      <div className={styles.centerer}>
-        {data.posts ? (
-          <div className={styles.sliderContainer}>
-            <Swiper>
-              {data.posts.map((post) => (
-                <Slide>
-                  <img className={styles.image} key={post.id} src={post.imageUrl} />
-                </Slide>
-              ))}
-            </Swiper>
-          </div>
-        ) : (
-          <div>loading...</div>
-        )}
-      </div>
+      {data.posts ? (
+        <Swiper>
+          {data.posts.map((post) => (
+            <Slide key={post.id}>
+              <img className={styles.image} src={post.imageUrl} />
+            </Slide>
+          ))}
+        </Swiper>
+      ) : (
+        <div>loading...</div>
+      )}
     </Layout>
   );
 }

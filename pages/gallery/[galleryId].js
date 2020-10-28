@@ -14,20 +14,18 @@ export default function GallerySubPage({images, preview}) {
   }
   return (
     <Layout preview={preview}>
-      <div className={styles.sliderContainer}>
-        <Swiper>
-          {images.map((image) => (
-            <Slide key={image.sys.id}>
-              <img
-                className={styles.image}
-                alt={image.fields.description}
-                src={`${image.fields.file.url}?w=1000`}
-              />
-              <span className={styles.description}>{image.fields.description}</span>
-            </Slide>
-          ))}
-        </Swiper>
-      </div>
+      <Swiper>
+        {images.map((image) => (
+          <Slide key={image.sys.id}>
+            <img
+              className={styles.image}
+              alt={image.fields.description}
+              src={`${image.fields.file.url}?w=1000`}
+            />
+            <span className={styles.description}>{image.fields.description}</span>
+          </Slide>
+        ))}
+      </Swiper>
     </Layout>
   );
 }

@@ -2,7 +2,6 @@ import {documentToReactComponents} from '@contentful/rich-text-react-renderer';
 
 import InstagramLink from 'components/InstagramLink';
 import Layout, {Intro, Section} from 'components/Layout';
-import Slider from 'components/Slider';
 import {fetchPageData} from 'utils/fetchPageData';
 
 import styles from './contact.module.css';

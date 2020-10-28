@@ -1,59 +1,36 @@
-import Slider from 'react-slick';
+import SwiperCore, {Autoplay, EffectFade} from 'swiper';
+import {Swiper, SwiperSlide} from 'swiper/react';
 
 import Layout from 'components/Layout';
-import InstagramImages from 'components/InstagramImages';
 import InstagramLink from 'components/InstagramLink';
 import {fetchPageData} from 'utils/fetchPageData';
 
 import styles from './index.module.css';
 
-function SampleNextArrow(props) {
-  const {className, style, onClick} = props;
-  return (
-    <div
-      className={className}
-      style={{...style, display: 'block', background: 'red'}}
-      onClick={onClick}
-    />
-  );
-}
-
-function SamplePrevArrow(props) {
-  const {className, style, onClick} = props;
-  return (
-    <div
-      className={className}
-      style={{...style, display: 'block', background: 'green'}}
-      onClick={onClick}
-    />
-  );
-}
+SwiperCore.use([Autoplay, EffectFade]);
 
 export default function HomePage({images, preview}) {
-  const settings = {
-    arrows: false,
-    autoplay: true,
-    fade: true,
-    lazyLoad: 'progressive',
-    pauseOnHover: false,
-    speed: 3000,
-    nextArrow: <SampleNextArrow />,
-    prevArrow: <SamplePrevArrow />,
-  };
-
   return (
     <>
       <Layout preview={preview}>
         <div className={styles.slideshow}>
-          <Slider {...settings}>
+          <Swiper
+            centeredSlides
+            loop
+            autoplay={{delay: 4000}}
+            speed={2000}
+            effect="fade"
+            spaceBetween={0}
+          >
             {images.map((image) => (
-              <img
-                alt={image.image_description}
-                key={image.sys.id}
-                src={`${image.fields.file.url}?w=1500&h=1000`}
-              />
+              <SwiperSlide key={image.sys.id}>
+                <img
+                  alt={image.image_description}
+                  src={`${image.fields.file.url}?w=1500&h=1000`}
+                />
+              </SwiperSlide>
             ))}
-          </Slider>
+          </Swiper>
         </div>
         <InstagramLink isAbsolute={true} />
       </Layout>
