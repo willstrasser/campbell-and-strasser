@@ -61,7 +61,6 @@
 @media (max-width: 768px) {
   .nav {
     justify-content: center;
-    margin: 0 -25px;
     padding-left: 0;
   }
 
@@ -95,7 +94,7 @@
 
   .mobileNav .navLink {
     display: block;
-    padding: 20px;
+    padding: 20px 0;
     font-size: 1.3rem;
   }
 
@@ -284,17 +283,16 @@
 @media (max-width: 450px) {
   .nav {
     height: 50px;
-    padding: 0 25px;
   }
 
   .navToggle {
-    top: 13px;
-    right: 25px;
+    top: 15px;
+    right: 10px;
     transform: scale(0.5);
   }
 
   .logo {
-    width: 200px;
-    height: 50px;
+    width: 260px;
+    height: 65px;
   }
 }
