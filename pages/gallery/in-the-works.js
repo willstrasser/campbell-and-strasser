@@ -35,7 +35,7 @@ export default function InTheWorks() {
           ))}
         </Swiper>
       ) : (
-        <div>loading...</div>
+        <div className={styles.loader}>Loading...</div>
       )}
     </Layout>
   );

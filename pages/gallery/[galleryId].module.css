@@ -1,8 +1,15 @@
 .image {
-  height: calc(100vh - 180px) !important;
   display: block;
+  width: 100vw;
+  height: calc(100vh - 180px) !important;
+  object-fit: contain;
 }
 
 .description {
   font-size: 14px;
+}
+
+.loader {
+  font-size: 12px;
+  margin-top: 40vh;
 }
