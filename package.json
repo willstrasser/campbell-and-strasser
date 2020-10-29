@@ -18,9 +18,8 @@
     "next": "^9.4.4",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
-    "react-keyboard-event-handler": "^1.5.4",
-    "react-slick": "^0.26.1",
-    "slick-carousel": "^1.8.1",
+    "sass": "^1.27.0",
+    "swiper": "^6.3.4",
     "user-instagram": "^2.0.8"
   },
   "devDependencies": {

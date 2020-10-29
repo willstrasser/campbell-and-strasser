@@ -2,3 +2,20 @@ body {
   background-color: rgba(231, 236, 239, 1);
   font-family: 'Playfair Display', serif;
 }
+.gallery {
+  width: 100vw;
+}
+.gallery .swiper-slide {
+  width: auto !important;
+  opacity: 0;
+  transition: opacity 300ms !important;
+}
+.gallery .swiper-slide-active {
+  opacity: 1;
+}
+
+.swiper-wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}

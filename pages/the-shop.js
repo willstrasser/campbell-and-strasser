@@ -1,5 +1,5 @@
+import InstagramLink from 'components/InstagramLink';
 import Layout from 'components/Layout';
-import Slider from 'components/Slider';
 import PageWithSubsections from 'components/PageWithSubsections';
 import {fetchPageData} from 'utils/fetchPageData';
 
@@ -11,6 +11,7 @@ export default function CapabilitiesPage({introImages, intro, subsections, previ
         intro={intro}
         subsections={subsections}
       />
+      <InstagramLink isAbsolute={false} isBlack={true} />
     </Layout>
   );
 }

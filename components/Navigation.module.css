@@ -1,20 +1,30 @@
 .nav {
   display: flex;
+  flex-wrap: wrap;
   height: 100px;
   align-items: center;
-  margin-block-start: 0;
-  margin-block-end: 0;
+  justify-content: center;
+  margin-left: 0;
+  margin-top: 0;
   background-color: rgba(231, 236, 239, 0.85);
-  margin: 0 -50px;
-  padding: 0 50px 0 50vw;
+  width: 100vw;
+  padding-bottom: 20px;
 }
 
 .navLink {
   color: rgba(35, 31, 32, 0.75);
-  margin: 0 25px 0 0;
+  margin: 0 27px;
   text-decoration: none;
-  margin-bottom: -8px;
-  font-size: 14px;
+  font-size: 16px;
+}
+
+.nav li {
+  margin-bottom: 0;
+  line-height: 1rem;
+}
+
+.logoItem {
+  width: 100%;
 }
 
 .selected {
@@ -23,8 +33,8 @@
 
 .logo {
   display: block;
-  width: 300px;
-  height: 50px;
+  width: 360px;
+  height: 60px;
   background: url(/Logo.svg) no-repeat;
   background-size: contain;
   background-position: center;
@@ -32,7 +42,8 @@
   white-space: nowrap;
   overflow: hidden;
   border-bottom: none;
-  margin-left: -150px;
+  margin: 20px auto 0;
+  font-size: 0;
 }
 
 .logo:hover {
@@ -45,13 +56,6 @@
 
 .navToggle {
   display: none;
-}
-
-@media (max-width: 900px) {
-  .navLink {
-    font-size: 12px;
-    margin-right: 15px;
-  }
 }
 
 @media (max-width: 768px) {
@@ -67,7 +71,7 @@
 
   .nav .logo {
     display: block;
-    margin-right: 0;
+    margin-top: 5px;
   }
 
   .mobileNav {
@@ -87,10 +91,6 @@
 
   .mobileNav.open {
     display: flex;
-  }
-
-  .mobileNav .logo {
-    display: none !important;
   }
 
   .mobileNav .navLink {
