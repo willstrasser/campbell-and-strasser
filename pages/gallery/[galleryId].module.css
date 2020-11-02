@@ -5,11 +5,6 @@
   object-fit: contain;
 }
 
-.description {
-  font-size: 14px;
-}
-
 .loader {
-  font-size: 12px;
   margin-top: 40vh;
 }

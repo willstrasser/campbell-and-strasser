@@ -1,6 +1,6 @@
 .layout {
   padding: 0px 50px;
-  color: rgb(35, 31, 32);
+  color: rgba(0, 0, 0, 0.65);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -13,16 +13,23 @@
 
 .section {
   max-width: 650px;
-  font-size: 16px;
   text-align: justify;
 }
-
+.subnav {
+  margin-top: 10px;
+}
 .subnav a {
-  margin-right: 25px;
+  border-right: 1px solid rgba(0, 0, 0, 0.65);
+  padding: 6px 13px;
   text-transform: uppercase;
-  font-size: 14px;
 }
 
+.subnav a:hover {
+  border-bottom: none;
+}
+.subnav a:last-child {
+  border-right: none;
+}
 .images {
   margin-top: 25px;
   width: 650px;
@@ -34,13 +41,9 @@
   }
   .intro {
     width: 100%;
-    font-size: 18px;
   }
   .section {
     width: 100%;
-  }
-  .subnav a {
-    font-size: 12px;
   }
   .images {
     max-width: 100%;

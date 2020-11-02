@@ -9,13 +9,6 @@ import {Images, Intro, Section, Subnav} from './Layout';
 export default function PageWithSubsections({images, intro, subsections}) {
   return (
     <>
-      <Subnav>
-        {subsections.map((subsection) => (
-          <a key={subsection.fields.slug} href={`#${subsection.fields.slug}`}>
-            {subsection.fields.title}
-          </a>
-        ))}
-      </Subnav>
       <Images>
         <Swiper centeredSlides loop autoplay={{delay: 4000}} speed={2000} effect="fade">
           {images &&
@@ -29,6 +22,13 @@ export default function PageWithSubsections({images, intro, subsections}) {
             ))}
         </Swiper>
       </Images>
+      <Subnav>
+        {subsections.map((subsection) => (
+          <a key={subsection.fields.slug} href={`#${subsection.fields.slug}`}>
+            {subsection.fields.title}
+          </a>
+        ))}
+      </Subnav>
       <Intro>{documentToReactComponents(intro)}</Intro>
       {subsections.map((subsection) => (
         <Section key={subsection.fields.slug}>

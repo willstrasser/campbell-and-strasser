@@ -6,16 +6,16 @@
   justify-content: center;
   margin-left: 0;
   margin-top: 0;
-  background-color: rgba(231, 236, 239, 0.85);
+  background-color: rgba(217, 217, 217, 0.85);
   width: 100vw;
   padding-bottom: 20px;
 }
 
 .navLink {
   color: rgba(35, 31, 32, 0.75);
-  margin: 0 27px;
+  margin: 0 15px;
   text-decoration: none;
-  font-size: 16px;
+  font-weight: 700;
 }
 
 .nav li {
