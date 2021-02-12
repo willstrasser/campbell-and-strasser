@@ -26,6 +26,7 @@
 
 .link:hover a {
   text-decoration: underline;
+  border-bottom: none;
 }
 
 @media (max-width: 1248px) {
