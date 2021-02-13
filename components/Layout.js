@@ -3,6 +3,20 @@ import Navigation from './Navigation';
 import PreviewHeader from './PreviewHeader';
 
 import styles from './Layout.module.css';
+import {motion} from 'framer-motion';
+
+let easing = [0.175, 0.85, 0.42, 0.96];
+const bodyVariant = {
+  initial: {opacity: 0},
+  exit: {opacity: 0, transition: {duration: 0.5, ease: easing}},
+  enter: {
+    opacity: 1,
+    transition: {
+      duration: 0.5,
+      ease: easing,
+    },
+  },
+};
 
 export default function Layout({preview, children}) {
   return (
@@ -20,7 +34,15 @@ export default function Layout({preview, children}) {
         />
       </Head>
       <Navigation />
-      {children}
+      <motion.div
+        className={styles.page}
+        initial="initial"
+        animate="enter"
+        exit="exit"
+        variants={bodyVariant}
+      >
+        {children}
+      </motion.div>
     </div>
   );
 }

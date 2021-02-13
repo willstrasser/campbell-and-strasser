@@ -9,6 +9,7 @@
   background-color: rgba(217, 217, 217, 0.85);
   width: 100vw;
   padding-bottom: 20px;
+  z-index: 100;
 }
 
 .navLink {

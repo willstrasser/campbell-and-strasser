@@ -6,6 +6,12 @@
   align-items: center;
 }
 
+.page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 .intro {
   max-width: 650px;
   text-align: justify;
