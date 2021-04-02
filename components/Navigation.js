@@ -5,13 +5,20 @@ import {useRouter} from 'next/router';
 
 import styles from './Navigation.module.css';
 
-const pages = [
-  {slug: '', title: 'Campbell & Strasser'},
-  {slug: 'the-shop', title: 'The Shop'},
-  {slug: 'gallery', title: 'Projects'},
-  {slug: 'contact', title: 'Contact'},
+let pages = [
+  {slug: '', title: 'Campbell & Strasser', inSplash: true},
+  {slug: 'the-shop', title: 'The Shop', inSplash: false},
+  {slug: 'gallery', title: 'Projects', inSplash: false},
+  {slug: 'contact', title: 'Contact', inSplash: false},
 ];
-function Navigation() {
+function Navigation({preview}) {
+  if (
+    !preview &&
+    typeof window !== 'undefined' &&
+    window.location.hostname.includes('campbellandstrasser')
+  ) {
+    pages = pages.filter((page) => page.inSplash);
+  }
   const [open, setOpen] = useState(false);
   function renderLinks() {
     return pages.slice(1).map((p) => {

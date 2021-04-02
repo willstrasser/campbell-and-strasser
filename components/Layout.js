@@ -19,8 +19,16 @@ export default function Layout({preview, children}) {
           content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
         />
       </Head>
-      <Navigation />
-      {children}
+      <Navigation preview={preview} />
+      <motion.div
+        className={styles.page}
+        initial="initial"
+        animate="enter"
+        exit="exit"
+        variants={bodyVariant}
+      >
+        {children}
+      </motion.div>
     </div>
   );
 }
