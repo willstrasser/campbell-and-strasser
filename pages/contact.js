@@ -10,19 +10,15 @@ import styles from './contact.module.css';
 export default function ContactPage({introImages, intro, preview}) {
   return (
     <Layout preview={preview}>
-      <Images>
-        <Swiper centeredSlides loop autoplay={{delay: 4000}} speed={2000} effect="fade">
-          {introImages &&
-            introImages.map((image) => (
-              <SwiperSlide key={image.sys.id}>
-                <img
-                  alt={image.image_description}
-                  src={`${image.fields.file.url}?w=1000&h=300&fit=fill`}
-                />
-              </SwiperSlide>
-            ))}
-        </Swiper>
-      </Images>
+      {introImages &&
+        introImages.map((image) => (
+          <img
+            className={styles.img}
+            key={image.fields.file.url}
+            alt={image.image_description}
+            src={`${image.fields.file.url}?w=1000&h=300&fit=fill`}
+          />
+        ))}
       <Section>
         <div className={styles.contact}>{documentToReactComponents(intro)}</div>
       </Section>
