@@ -9,13 +9,14 @@ let pages = [
   {slug: '', title: 'Campbell & Strasser', inSplash: true},
   {slug: 'the-shop', title: 'The Shop', inSplash: false},
   {slug: 'gallery', title: 'Projects', inSplash: false},
-  {slug: 'contact', title: 'Contact', inSplash: false},
+  {slug: 'contact', title: 'Contact', inSplash: true},
 ];
 function Navigation({preview}) {
   if (
     !preview &&
     typeof window !== 'undefined' &&
-    window.location.hostname.includes('campbellandstrasser')
+    (window.location.hostname.includes('campbellandstrasser') ||
+      window.location.hostname.includes('localhost'))
   ) {
     pages = pages.filter((page) => page.inSplash);
   }
