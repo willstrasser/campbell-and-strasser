@@ -10,15 +10,16 @@ import styles from './contact.module.css';
 export default function ContactPage({introImages, intro, preview}) {
   return (
     <Layout preview={preview}>
-      {introImages &&
-        introImages.map((image) => (
-          <img
-            className={styles.img}
-            key={image.fields.file.url}
-            alt={image.image_description}
-            src={`${image.fields.file.url}?w=1000&h=300&fit=fill`}
-          />
-        ))}
+      <Images>
+        {introImages &&
+          introImages.map((image) => (
+            <img
+              key={image.fields.file.url}
+              alt={image.image_description}
+              src={`${image.fields.file.url}?w=1000&h=300&fit=fill`}
+            />
+          ))}
+      </Images>
       <Section>
         <div className={styles.contact}>{documentToReactComponents(intro)}</div>
       </Section>

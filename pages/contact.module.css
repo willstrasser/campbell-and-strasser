@@ -5,11 +5,3 @@
 .contact p:last-child {
   margin: -15px 0;
 }
-.img {
-  max-width: 650px;
-}
-@media (max-width: 768px) {
-  .img {
-    max-width: 84vw;
-  }
-}
