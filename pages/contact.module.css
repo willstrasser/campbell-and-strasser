@@ -6,5 +6,10 @@
   margin: -15px 0;
 }
 .img {
-  max-width: 90vw;
+  max-width: 650px;
+}
+@media (max-width: 768px) {
+  .img {
+    max-width: 84vw;
+  }
 }
