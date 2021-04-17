@@ -1,6 +1,6 @@
 module.exports = {
-  env: {
-    API_TOKEN: process.env.BUTTER_API_TOKEN,
+  images: {
+    domains: ['images.ctfassets.net'],
   },
   async redirects() {
     return [

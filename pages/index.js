@@ -1,3 +1,5 @@
+import Image from 'next/image';
+
 import SwiperCore, {Autoplay, EffectFade} from 'swiper';
 import {Swiper, SwiperSlide} from 'swiper/react';
 
@@ -10,6 +12,7 @@ import styles from './index.module.css';
 SwiperCore.use([Autoplay, EffectFade]);
 
 export default function HomePage({images, preview}) {
+  const imageWidth = process.env.NODE_ENV === 'development' ? 100 : 2000;
   return (
     <>
       <Layout preview={preview}>
@@ -24,10 +27,13 @@ export default function HomePage({images, preview}) {
           >
             {images.map((image) => (
               <SwiperSlide key={image.sys.id}>
-                <img
-                  alt={image.image_description}
-                  src={`${image.fields.file.url}?w=1500&h=1000`}
-                />
+                <div style={{height: '100vh', width: '100vw'}}>
+                  <Image
+                    alt={image.image_description}
+                    src={`https:${image.fields.file.url}?w=${imageWidth}`}
+                    layout="fill"
+                  />
+                </div>
               </SwiperSlide>
             ))}
           </Swiper>
