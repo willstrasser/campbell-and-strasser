@@ -29,7 +29,7 @@ function Navigation({preview}) {
       });
       return (
         <li className={styles.navItem} key={p.slug}>
-          <Link className={classes} href={`/${p.slug}`}>
+          <Link className={classes} href={`/${p.slug}`} legacyBehavior>
             {p.title}
           </Link>
         </li>
@@ -37,32 +37,30 @@ function Navigation({preview}) {
     });
   }
   const router = useRouter();
-  return (
-    <>
-      <ul className={styles.nav}>
-        <li className={classNames(styles.navItem, styles.logoItem)} key={pages[0].slug}>
-          <Link
-            className={classNames(styles.navLink, styles.logo)}
-            href={`/${pages[0].slug}`}
-          >
-            {pages[0].title}
-          </Link>
-        </li>
-        {renderLinks()}
-      </ul>
-      <ul className={classNames(styles.mobileNav, {[styles.open]: open})}>
-        {renderLinks()}
-      </ul>
-      <div
-        onClick={() => setOpen(!open)}
-        className={classNames(styles.navToggle, {[styles.active]: open})}
-      >
-        <i></i>
-        <i></i>
-        <i></i>
-      </div>
-    </>
-  );
+  return <>
+    <ul className={styles.nav}>
+      <li className={classNames(styles.navItem, styles.logoItem)} key={pages[0].slug}>
+        <Link
+          className={classNames(styles.navLink, styles.logo)}
+          href={`/${pages[0].slug}`}
+          legacyBehavior>
+          {pages[0].title}
+        </Link>
+      </li>
+      {renderLinks()}
+    </ul>
+    <ul className={classNames(styles.mobileNav, {[styles.open]: open})}>
+      {renderLinks()}
+    </ul>
+    <div
+      onClick={() => setOpen(!open)}
+      className={classNames(styles.navToggle, {[styles.active]: open})}
+    >
+      <i></i>
+      <i></i>
+      <i></i>
+    </div>
+  </>;
 }
 
 export default Navigation;

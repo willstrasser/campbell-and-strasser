@@ -13,7 +13,7 @@ export default function GalleryIndex({navigation, preview}) {
         {navigation.map(({title, slug, image}) => {
           return (
             <li className={styles.item} key={slug}>
-              <Link href={`/gallery/${slug}`}>
+              <Link href={`/gallery/${slug}`} legacyBehavior>
                 <div className={styles.link}>
                   <img
                     alt={image.image_description}
