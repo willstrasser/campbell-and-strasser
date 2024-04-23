@@ -1,8 +1,0 @@
-{
-  "build": {
-    "env": {
-      "CONTENTFUL_API_KEY": "@contentful_api_key",
-      "CONTENTFUL_SPACE_ID": "@contentful_space_id"
-    }
-  }
-}
