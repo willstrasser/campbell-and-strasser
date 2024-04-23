@@ -16,8 +16,8 @@ export default function GalleryLayout({children, navigation}) {
           });
           return (
             <li className={styles.navItem} key={slug}>
-              <Link href={`/gallery/${slug}`}>
-                <a className={classes}>{title}</a>
+              <Link className={classes} href={`/gallery/${slug}`}>
+                {title}
               </Link>
             </li>
           );

@@ -29,8 +29,8 @@ function Navigation({preview}) {
       });
       return (
         <li className={styles.navItem} key={p.slug}>
-          <Link href={`/${p.slug}`}>
-            <a className={classes}>{p.title}</a>
+          <Link className={classes} href={`/${p.slug}`}>
+            {p.title}
           </Link>
         </li>
       );
@@ -41,8 +41,11 @@ function Navigation({preview}) {
     <>
       <ul className={styles.nav}>
         <li className={classNames(styles.navItem, styles.logoItem)} key={pages[0].slug}>
-          <Link href={`/${pages[0].slug}`}>
-            <a className={classNames(styles.navLink, styles.logo)}>{pages[0].title}</a>
+          <Link
+            className={classNames(styles.navLink, styles.logo)}
+            href={`/${pages[0].slug}`}
+          >
+            {pages[0].title}
           </Link>
         </li>
         {renderLinks()}

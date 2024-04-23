@@ -20,7 +20,7 @@ export default function GalleryIndex({navigation, preview}) {
                     key={image.sys.id}
                     src={`${image.fields.file.url}?w=600&h=400&fit=fill`}
                   />
-                  <a>{title}</a>
+                  {title}
                 </div>
               </Link>
             </li>
