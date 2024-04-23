@@ -16,8 +16,8 @@ export default function GalleryIndex({navigation, preview}) {
               <Link href={`/gallery/${slug}`} legacyBehavior>
                 <div className={styles.link}>
                   <img
-                    key={image.sys.id}
                     alt={image.image_description}
+                    key={image.sys.id}
                     src={`${image.fields.file.url}?w=600&h=400&fit=fill`}
                   />
                   {title}
