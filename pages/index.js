@@ -13,7 +13,9 @@ import styles from './index.module.css';
 SwiperCore.use([Autoplay, EffectFade]);
 
 export default function HomePage({images, mobileImages, preview}) {
-  const mobileFallback = mobileImages || images;
+  const imagesWithFile = images.filter((image) => image.fields?.file);
+  const mobileWithFile = mobileImages.filter((image) => image.fields?.file);
+  const mobileFallback = mobileWithFile || imagesWithFile;
   const isMobile = useMediaQuery(`(max-width: 767.98px)`);
   const imageOptions = process.env.NODE_ENV === 'development' ? `?w=${500}` : '';
 
@@ -30,7 +32,7 @@ export default function HomePage({images, mobileImages, preview}) {
             spaceBetween={0}
           >
             {(!isMobile || isMobile === undefined) &&
-              images.map((image) => (
+              imagesWithFile.map((image) => (
                 <SwiperSlide key={image.sys.id}>
                   <div style={{height: '100vh', width: '100vw'}}>
                     <Image
